@@ -24,4 +24,20 @@ def delete_student_id(student_id):
 	delete_by_id(student_id)
 	return render_template('delete.html', student_id = student_id)
 
+@app.route('/edit/<int:student_id>', methods=['GET','POST'])
+def edit_lab_status(student_id):
+	if request.method == 'GET':
+		student = query_by_id(student_id)
+		return render_template('edit.html', student = student)
+	else:
+		student = query_by_id(student_id)
+		lab = request.form['lab_status']
+		if(lab == "Finished"):
+			student.finished_lab = True
+		else:
+			student.finished_lab = False
+		session.commit()
+		return render_template('edit.html', student = student)
+
+
 app.run(debug=True)

@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+<head>
+    <title>Edit a student</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+</head>
+<body>
+    <h1> Update {{student.name}} 's lab status </h1>
+
+    <form action="/edit/{{student.student_id}}" method="post">
+    <input type="radio" name="lab_status" value="Finished"> Finished
+    <input type="radio" name="lab_status" value="not yet"> Not yet.
+    <br>
+    <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

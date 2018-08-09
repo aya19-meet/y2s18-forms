@@ -14,7 +14,10 @@
     <p><a href="{{url_for('home')}}">Home</a></p
     >
      <form action='/delete/{{student.student_id}}' method="post">
-        <input type="submit" value="Delete">
+    <input type="submit" value="Delete">
+    </form>
+    <form action="/edit/{{student.student_id}}" method="get">
+        <input type="submit" value="Edit lab status">
     </form>
 </body>
 </html>

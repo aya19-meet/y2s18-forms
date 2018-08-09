@@ -21,13 +21,13 @@ def add_student(name, year, finished_lab):
 	session.add(student_object)
 	session.commit()
 
-def query_by_name(name):
+def query_by_id(student_id):
 	"""
 	Find the first student in the database,
 	by their name
 	"""
 	student = session.query(Student).filter_by(
-		name=name).first()
+		student_id = student_id).first()
 	return student
 
 def query_all():
